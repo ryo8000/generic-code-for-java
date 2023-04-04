@@ -10,6 +10,8 @@
 
   <name>Generic Code for Java</name>
   <url>https://github.com/ryo8000/generic-code-for-java</url>
+  <description>Generic code collection for java</description>
+  <inceptionYear>2023</inceptionYear>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
