@@ -56,6 +56,14 @@ public class DateUtilTest {
   }
 
   @Test
+  public void testParseDateIntoString() throws ParseException {
+    String expected = "2020/02/26 23:59:59.999";
+    Date datetime = createDate("2020-02-26 23:59:59.999", "yyyy-MM-dd HH:mm:ss.SSS");
+    String actual = DateUtil.parseString(datetime, "yyyy/MM/dd HH:mm:ss.SSS");
+    assertThat(actual, is(expected));
+  }
+
+  @Test
   public void testParseCalendar() throws ParseException {
     Calendar expected =
         toCalendar(createDate("2020-02-26 23:59:59.999", "yyyy-MM-dd HH:mm:ss.SSS"));

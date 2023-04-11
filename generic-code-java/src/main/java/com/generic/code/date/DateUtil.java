@@ -1,5 +1,6 @@
 package com.generic.code.date;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -112,6 +113,19 @@ public class DateUtil {
     c.set(year, (month - 1), dayOfMonth, hour, minute, second);
     c.set(Calendar.MILLISECOND, millisecond);
     return c;
+  }
+
+  /**
+   * Converts a {@code Date} value to a {@code String}.
+   *
+   * @param date an instance of {@code Date}
+   * @param formatter the formatter to use
+   * @return the parsed date string
+   */
+  public static String parseString(Date date, String formatter) {
+    SimpleDateFormat sdf = new SimpleDateFormat(formatter);
+    sdf.setLenient(false);
+    return sdf.format(date);
   }
 
   /**
