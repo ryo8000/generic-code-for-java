@@ -129,6 +129,17 @@ public class DateUtil {
   }
 
   /**
+   * Converts a {@code Calendar} value to a {@code String}.
+   *
+   * @param calendar an instance of {@code Calendar}
+   * @param formatter the formatter to use
+   * @return the parsed date string
+   */
+  public static String parseString(Calendar calendar, String formatter) {
+    return parseString(calendar.getTime(), formatter);
+  }
+
+  /**
    * Converts a {@code Date} value to a {@code Calendar}.
    *
    * @param date an instance of {@code Date}
