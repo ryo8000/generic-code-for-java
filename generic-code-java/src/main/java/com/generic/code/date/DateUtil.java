@@ -113,4 +113,17 @@ public class DateUtil {
     c.set(Calendar.MILLISECOND, millisecond);
     return c;
   }
+
+  /**
+   * Converts a {@code Date} value to a {@code Calendar}.
+   *
+   * @param date an instance of {@code Date}
+   * @return an instance of {@code Calendar}
+   */
+  public static Calendar parseCalendar(Date date) {
+    final Calendar c = Calendar.getInstance();
+    c.setLenient(false);
+    c.setTime(date);
+    return c;
+  }
 }
