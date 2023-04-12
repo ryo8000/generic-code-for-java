@@ -151,4 +151,17 @@ public class DateUtil {
     c.setTime(date);
     return c;
   }
+
+  /**
+   * Copy an instance of {@code Calendar}.
+   *
+   * @param calendar copy source instance
+   * @return copied instances
+   */
+  public static Calendar copy(Calendar calendar) {
+    final Calendar c = (Calendar) calendar.clone();
+    c.setLenient(false);
+    return c;
+  }
+
 }
