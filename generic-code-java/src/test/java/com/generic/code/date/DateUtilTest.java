@@ -36,23 +36,24 @@ public class DateUtilTest {
 
   @Test
   public void testCreateCalendarFromYearMonthDay() throws ParseException {
-    Date expected = createDate("2020-02-26", "yyyy-MM-dd");
-    Date actual = DateUtil.createCalendar(2020, 2, 26).getTime();
+    Calendar expected = toCalendar(createDate("2020-02-26", "yyyy-MM-dd"));
+    Calendar actual = DateUtil.createCalendar(2020, 2, 26);
     assertThat(actual, is(expected));
   }
 
   @Test
   public void testCreateCalendarFromYearMonthDayHourMinuteSecond() throws ParseException {
-    Date expected = createDate("2020-02-26 23:59:59", "yyyy-MM-dd HH:mm:ss");
-    Date actual = DateUtil.createCalendar(2020, 2, 26, 23, 59, 59).getTime();
+    Calendar expected = toCalendar(createDate("2020-02-26 23:59:59", "yyyy-MM-dd HH:mm:ss"));
+    Calendar actual = DateUtil.createCalendar(2020, 2, 26, 23, 59, 59);
     assertThat(actual, is(expected));
   }
 
   @Test
   public void testCreateCalendarFromYearMonthDayHourMinuteSecondMillisecond()
       throws ParseException {
-    Date expected = createDate("2020-02-26 23:59:59.999", "yyyy-MM-dd HH:mm:ss.SSS");
-    Date actual = DateUtil.createCalendar(2020, 2, 26, 23, 59, 59, 999).getTime();
+    Calendar expected =
+        toCalendar(createDate("2020-02-26 23:59:59.999", "yyyy-MM-dd HH:mm:ss.SSS"));
+    Calendar actual = DateUtil.createCalendar(2020, 2, 26, 23, 59, 59, 999);
     assertThat(actual, is(expected));
   }
 
@@ -79,6 +80,24 @@ public class DateUtilTest {
         toCalendar(createDate("2020-02-26 23:59:59.999", "yyyy-MM-dd HH:mm:ss.SSS"));
     Date datetime = createDate("2020-02-26 23:59:59.999", "yyyy-MM-dd HH:mm:ss.SSS");
     Calendar actual = DateUtil.parseCalendar(datetime);
+    assertThat(actual, is(expected));
+  }
+
+  @Test
+  public void testTruncateDateTime() throws ParseException {
+    Date expected = createDate("2020-02-26 00:00:00.000", "yyyy-MM-dd HH:mm:ss.SSS");
+    Date datetime = createDate("2020-02-26 23:59:59.999", "yyyy-MM-dd HH:mm:ss.SSS");
+    Date actual = DateUtil.truncateTime(datetime);
+    assertThat(actual, is(expected));
+  }
+
+  @Test
+  public void testTruncateCalendarTime() throws ParseException {
+    Calendar expected =
+        toCalendar(createDate("2020-02-26 00:00:00.000", "yyyy-MM-dd HH:mm:ss.SSS"));
+    Calendar datetime =
+        toCalendar(createDate("2020-02-26 23:59:59.999", "yyyy-MM-dd HH:mm:ss.SSS"));
+    Calendar actual = DateUtil.truncateTime(datetime);
     assertThat(actual, is(expected));
   }
 

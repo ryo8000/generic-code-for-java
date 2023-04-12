@@ -153,6 +153,31 @@ public class DateUtil {
   }
 
   /**
+   * Truncates time information held by the {@code Date} instance.
+   *
+   * @param date an instance of {@code Date}
+   * @return an instance of {@code Date} with time information of 00:00:00.000
+   */
+  public static Date truncateTime(Date date) {
+    return truncateTime(parseCalendar(date)).getTime();
+  }
+
+  /**
+   * Truncates time information held by the {@code Calendar} instance.
+   *
+   * @param calendar an instance of {@code Calendar}
+   * @return an instance of {@code Calendar} with time information of 00:00:00.000
+   */
+  public static Calendar truncateTime(Calendar calendar) {
+    Calendar c = copy(calendar);
+    c.set(Calendar.HOUR_OF_DAY, 0);
+    c.clear(Calendar.MINUTE);
+    c.clear(Calendar.SECOND);
+    c.clear(Calendar.MILLISECOND);
+    return c;
+  }
+
+  /**
    * Copy an instance of {@code Calendar}.
    *
    * @param calendar copy source instance
@@ -163,5 +188,4 @@ public class DateUtil {
     c.setLenient(false);
     return c;
   }
-
 }
