@@ -3,13 +3,12 @@ package com.generic.code.date.constants;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 import org.junit.Test;
-import com.generic.code.constants.Enums;
 import com.generic.code.constants.Enums.IntEnum;
 
 /**
- * Test class for {@link Enums}.
+ * Test class for {@link IntEnum}.
  */
-public class EnumsTest {
+public class IntEnumTest {
 
   /**
    * Test data for {@link IntEnum}.
