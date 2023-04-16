@@ -58,7 +58,15 @@ public class DateUtilTest {
   }
 
   @Test
-  public void testParseDateIntoString() throws ParseException {
+  public void testParseDateIntoStringWithoutUsingFormatter() throws ParseException {
+    String expected = "2020-02-26T23:59:59.999";
+    Date datetime = createDate("2020-02-26 23:59:59.999", "yyyy-MM-dd HH:mm:ss.SSS");
+    String actual = DateUtil.parseString(datetime);
+    assertThat(actual, is(expected));
+  }
+
+  @Test
+  public void testParseDateIntoStringUsingFormatter() throws ParseException {
     String expected = "2020/02/26 23:59:59.999";
     Date datetime = createDate("2020-02-26 23:59:59.999", "yyyy-MM-dd HH:mm:ss.SSS");
     String actual = DateUtil.parseString(datetime, "yyyy/MM/dd HH:mm:ss.SSS");
@@ -66,7 +74,16 @@ public class DateUtilTest {
   }
 
   @Test
-  public void testParseCalendarIntoString() throws ParseException {
+  public void testParseCalendarIntoStringWithoutUsingFormatter() throws ParseException {
+    String expected = "2020-02-26T23:59:59.999";
+    Calendar datetime =
+        toCalendar(createDate("2020-02-26 23:59:59.999", "yyyy-MM-dd HH:mm:ss.SSS"));
+    String actual = DateUtil.parseString(datetime);
+    assertThat(actual, is(expected));
+  }
+
+  @Test
+  public void testParseCalendarIntoStringUsingFormatter() throws ParseException {
     String expected = "2020/02/26 23:59:59.999";
     Calendar datetime =
         toCalendar(createDate("2020-02-26 23:59:59.999", "yyyy-MM-dd HH:mm:ss.SSS"));

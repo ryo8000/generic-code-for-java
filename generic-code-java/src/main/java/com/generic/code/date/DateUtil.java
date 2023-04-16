@@ -3,6 +3,7 @@ package com.generic.code.date;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import com.generic.code.date.formatter.Formatters;
 
 /**
  * Utility class for using {@link java.util.Calendar} and {@link java.util.Date} object.
@@ -118,6 +119,19 @@ public class DateUtil {
   /**
    * Converts a {@code Date} value to a {@code String}.
    *
+   * <p>
+   * Converts the date-time into a {@code String}, such as '2011-12-03T10:15:30.123'.
+   *
+   * @param date an instance of {@code Date}
+   * @return the parsed date string
+   */
+  public static String parseString(Date date) {
+    return parseString(date, Formatters.ISO_LOCAL_DATE_TIME);
+  }
+
+  /**
+   * Converts a {@code Date} value to a {@code String}.
+   *
    * @param date an instance of {@code Date}
    * @param formatter the formatter to use
    * @return the parsed date string
@@ -126,6 +140,19 @@ public class DateUtil {
     SimpleDateFormat sdf = new SimpleDateFormat(formatter);
     sdf.setLenient(false);
     return sdf.format(date);
+  }
+
+  /**
+   * Converts a {@code Calendar} value to a {@code String}.
+   *
+   * <p>
+   * Converts the date-time into a {@code String}, such as '2011-12-03T10:15:30.123'.
+   *
+   * @param calendar an instance of {@code Calendar}
+   * @return the parsed date string
+   */
+  public static String parseString(Calendar calendar) {
+    return parseString(calendar.getTime(), Formatters.ISO_LOCAL_DATE_TIME);
   }
 
   /**
