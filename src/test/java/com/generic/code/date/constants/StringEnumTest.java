@@ -25,7 +25,7 @@ public class StringEnumTest {
 
     /**
      * Returns an {@code ClothingSize} instance with the specified {@code String} value.
-     * 
+     *
      * @param abbreviation a {@code String} value
      * @return an instance of {@code ClothingSize}
      */

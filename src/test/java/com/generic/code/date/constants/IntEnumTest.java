@@ -24,7 +24,7 @@ public class IntEnumTest {
 
     /**
      * Returns an {@code Ensemble} instance with the specified {@code int} value.
-     * 
+     *
      * @param numberOfMusicians an {@code int} value
      * @return an instance of {@code Ensemble}
      * @throws IllegalArgumentException if there is no constant with the specified {@code int} value

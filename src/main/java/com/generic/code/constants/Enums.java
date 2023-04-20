@@ -36,7 +36,7 @@ public class Enums {
 
     /**
      * Returns the {@code int} value defined for this enumeration constant.
-     * 
+     *
      * @return the {@code int} value of this enumeration constant
      */
     int intValue();
@@ -66,7 +66,7 @@ public class Enums {
 
     /**
      * Returns the {@code String} value defined for this enumeration constant.
-     * 
+     *
      * @return the {@code String} value of this enumeration constant
      */
     String stringValue();
