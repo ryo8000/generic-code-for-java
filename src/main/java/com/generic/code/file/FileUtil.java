@@ -32,7 +32,7 @@ public class FileUtil {
    * <p>
    * The result does not include the '{@code .}'.
    *
-   * @param the name of the file to trim the extension from.
+   * @param fileName the name of the file to trim the extension from.
    * @return the file name without extension.
    */
   public static String extractNameWithoutExtension(String fileName) {
