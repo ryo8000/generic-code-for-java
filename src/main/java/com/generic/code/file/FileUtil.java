@@ -1,5 +1,8 @@
 package com.generic.code.file;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Utility class related to file.
  */
@@ -9,6 +12,21 @@ public class FileUtil {
    * constructor.
    */
   private FileUtil() {}
+
+  /**
+   * Split the file name into two parts: one with the extension and one without the extension.
+   * Returns the given file name and the empty string if the file has no extension.
+   *
+   * @param fileName the file name
+   * @return the file extension and the file name without extension
+   */
+  public static List<String> splitNameByExtension(String fileName) {
+    int dotIndex = fileName.lastIndexOf('.');
+    if (dotIndex == -1) {
+      return Arrays.asList(fileName, "");
+    }
+    return Arrays.asList(fileName.substring(0, dotIndex), fileName.substring(dotIndex + 1));
+  }
 
   /**
    * Extracts the file extension for the given file name. Returns the empty string if the file has

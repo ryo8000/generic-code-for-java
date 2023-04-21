@@ -2,12 +2,29 @@ package com.generic.code.file;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import java.util.Arrays;
+import java.util.List;
 import org.junit.Test;
 
 /**
  * Test class for {@link FileUtil}.
  */
 public class FileUtilTest {
+
+  @Test
+  public void testSplitNameByExtensionForFileWithoutFileExtension() {
+    List<String> expected = Arrays.asList("myFile", "");
+    List<String> actual = FileUtil.splitNameByExtension("myFile");
+    assertThat(actual, is(expected));
+  }
+
+  @Test
+  public void testSplitNameByExtensionForFileWithFileExtension() {
+    List<String> expected = Arrays.asList("myFile.txt", "csv");
+    List<String> actual = FileUtil.splitNameByExtension("myFile.txt.csv");
+    assertThat(actual, is(expected));
+  }
+
   @Test
   public void testExtractExtensionForFileWithoutFileExtension() {
     String expected = "";
