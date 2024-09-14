@@ -3,7 +3,7 @@ package com.generic.code.base;
 /**
  * Utility class related to string.
  */
-public class StringUtil {
+public final class StringUtil {
 
   /**
    * constructor.

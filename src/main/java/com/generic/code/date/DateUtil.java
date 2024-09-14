@@ -8,7 +8,7 @@ import com.generic.code.date.formatter.Formatters;
 /**
  * Utility class for using {@link java.util.Calendar} and {@link java.util.Date} object.
  */
-public class DateUtil {
+public final class DateUtil {
 
   /**
    * constructor.

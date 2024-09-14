@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Utility class related to file.
  */
-public class FileUtil {
+public final class FileUtil {
 
   /**
    * constructor.

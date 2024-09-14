@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Utility class related to collections.
  */
-public class CollectionsUtil {
+public final class CollectionsUtil {
 
   /**
    * constructor.

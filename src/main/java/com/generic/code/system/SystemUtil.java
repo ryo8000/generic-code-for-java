@@ -3,7 +3,7 @@ package com.generic.code.system;
 /**
  * Utility class for using {@link java.lang.System}.
  */
-public class SystemUtil {
+public final class SystemUtil {
 
   /**
    * constructor.
