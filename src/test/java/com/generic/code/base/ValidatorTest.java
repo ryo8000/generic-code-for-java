@@ -17,7 +17,13 @@ public class ValidatorTest {
 
   @Test(expected = NullPointerException.class)
   public void testCheckNotNullWithNullObject() {
-    Validator.checkNotNull(null, "Object must not be null");
+    String errorMessage = "Object must not be null";
+    try {
+      Validator.checkNotNull(null, errorMessage);
+    } catch (NullPointerException e) {
+      assertThat(errorMessage, is(e.getMessage()));
+      throw e;
+    }
   }
 
   @Test
@@ -27,7 +33,13 @@ public class ValidatorTest {
 
   @Test(expected = IllegalArgumentException.class)
   public void testCheckArgumentWithFalseExpression() {
-    Validator.checkArgument(false, "Expression must be true");
+    String errorMessage = "Expression must be true";
+    try {
+      Validator.checkArgument(false, errorMessage);
+    } catch (IllegalArgumentException e) {
+      assertThat(errorMessage, is(e.getMessage()));
+      throw e;
+    }
   }
 
   @Test
@@ -37,6 +49,12 @@ public class ValidatorTest {
 
   @Test(expected = IllegalStateException.class)
   public void testCheckStateWithInvalidState() {
-    Validator.checkState(false, "State must be valid");
+    String errorMessage = "State must be valid";
+    try {
+      Validator.checkState(false, errorMessage);
+    } catch (IllegalStateException e) {
+      assertThat(errorMessage, is(e.getMessage()));
+      throw e;
+    }
   }
 }
