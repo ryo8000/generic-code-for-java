@@ -1,7 +1,7 @@
 package com.generic.code.date.constants;
 
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 import org.junit.Test;
 import com.generic.code.constants.Enums.IntEnum;
 
